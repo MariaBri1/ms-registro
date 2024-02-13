@@ -15,36 +15,40 @@ import java.util.List;
 @RequiredArgsConstructor
 public class PersonaController {
 
+    // Controlador para Persona
+
     private final PersonaServiceIn personaServiceIn;
 
     @PostMapping
-    public ResponseEntity<PersonaDTO> registrar(@RequestBody RequestPersona requestPersona){
+    public ResponseEntity<PersonaDTO> registrar(@RequestBody RequestPersona requestPersona) {
         return ResponseEntity
                 .status(HttpStatus.CREATED)
                 .body(personaServiceIn.crearPersonaIn(requestPersona));
     }
 
     @GetMapping("/{id}")
-    public ResponseEntity<PersonaDTO>obtenerPersona(@PathVariable Long id){
+    public ResponseEntity<PersonaDTO> obtenerPersona(@PathVariable Long id) {
 
         return ResponseEntity
                 .status(HttpStatus.OK)
                 .body(personaServiceIn.obtenerPersonaIn(id).get());
 
     }
+
     @GetMapping()
-    public ResponseEntity<List<PersonaDTO>>obtenerTodos(){
+    public ResponseEntity<List<PersonaDTO>> obtenerTodos() {
 
         return ResponseEntity
                 .status(HttpStatus.OK)
                 .body(personaServiceIn.obtenerTodosIn());
 
     }
+
     @PutMapping("/{id}")
-    public ResponseEntity<PersonaDTO>actualizar(@PathVariable Long id,@RequestBody RequestPersona requestPersona){
+    public ResponseEntity<PersonaDTO> actualizar(@PathVariable Long id, @RequestBody RequestPersona requestPersona) {
         return ResponseEntity
                 .status(HttpStatus.OK)
-                .body(personaServiceIn.actualizarIn(id,requestPersona));
+                .body(personaServiceIn.actualizarIn(id, requestPersona));
 
     }
 }
