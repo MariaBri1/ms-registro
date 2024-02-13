@@ -15,7 +15,7 @@ import java.util.List;
 @RequiredArgsConstructor
 public class PersonaController {
 
-    // Controlador para Persona
+    // Controlador para Persona - Hecho por Panzon
 
     private final PersonaServiceIn personaServiceIn;
 
